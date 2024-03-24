@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+ python1:
+  build: .
+  container_name: py1
+  command: flask run --host=0.0.0.0
+  ports:
+    - "80:5000"
+  volumes:
+    - /Users/aasrija/Documents/cmpt436/cmpt436Project/REST:/app
+  environment:
+    - FLASK_APP=server
+    - FLASK_ENV=development
+ mono:
+  image: mono:latest
+  container_name: m1
+  ports:
+    - "8080:8080"
+  volumes:
+    - /Users/aasrija/Documents/cmpt436/cmpt436Project/REST:/code
+  stdin_open: true
+  tty: true
+ mono2:
+  image: mono:latest
+  container_name: m2
+  ports:
+    - "8081:8080"
+  volumes:
+    - /Users/aasrija/Documents/cmpt436/cmpt436Project/REST:/code
+  stdin_open: true
+  tty: true
+
+ 
